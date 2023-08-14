@@ -86,7 +86,6 @@ So the subject specifies that you need penultimate version of Debian, right now 
 #### Yes 
 
 <img wi<img width="1585" alt="Screen Shot 2023-08-14 at 11 18 35 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/ac7e2731-4541-49b8-b6af-b0ac679732cd">
-dth="1597" alt="Screen Shot 2023-08-14 at 11 18 17 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/c81afb12-b6f0-44d7-b4e0-84266118b3cb">
 
 #### Yes
 
