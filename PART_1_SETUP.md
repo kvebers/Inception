@@ -79,7 +79,7 @@ So the subject specifies that you need penultimate version of Debian, right now 
 
 <img width="1592" alt="Screen Shot 2023-08-14 at 12 05 28 PM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/461fe2ae-dd52-40f1-b6ba-18b02e15aecd">
 
-#### Do xfac remove GNOME this will improve performace 10x trust me
+#### Do xfce remove GNOME this will improve performace 10x trust me
 
 <img width="1593" alt="Screen Shot 2023-08-14 at 11 10 33 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/615077c9-7fac-494f-b05b-3af65921c16a">
 
