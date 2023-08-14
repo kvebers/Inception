@@ -92,7 +92,3 @@ So the subject specifies that you need penultimate version of Debian, right now 
 <img width="1605" alt="Screen Shot 2023-08-14 at 11 19 28 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/e5e70ce7-cdef-4015-b4f4-5d2b50b87089">
 
 #### Done now you can start the lagging
-
-### After notes
-
-
