@@ -4,7 +4,9 @@
 
 ## HOW TO GET THE IMAGE
 
+### Huge thanks to [slaszlo](https://github.com/Lacusch) for some cool tricks
 So the subject specifies that you need penultimate version of Debian, right now it is Bullseye, but it might change soon, so here is how to get the version you might need in the future.
+
 
 #### 1. Go to [Debian Releases](https://www.debian.org/releases/) 
 #### 2. Click on version you need in my case [Debian 11 bullseye](https://www.debian.org/releases/bullseye/) Make sure it is Penultimate version
