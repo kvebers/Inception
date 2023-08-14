@@ -11,7 +11,7 @@ So the subject specifies that you need penultimate version of Debian, right now 
 #### 3. Click on [installation information](https://www.debian.org/releases/bullseye/debian-installer/)
 #### 4. Click on [amd64](https://cdimage.debian.org/cdimage/archive/11.7.0/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso) and download the image
 
-## SETUP THE VM
+## SETUP THE VM DO IT IN NEW VIRTUALBOX VERSION (PERFORMACE INCREATE 3x)
 
 <img width="638" alt="Screen Shot 2023-08-14 at 10 38 49 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/1d4d48b8-d755-46ba-82c5-10cfbd523c06">
 
@@ -77,6 +77,10 @@ So the subject specifies that you need penultimate version of Debian, right now 
 
 #### No need to partion
 
+<img width="1592" alt="Screen Shot 2023-08-14 at 12 05 28 PM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/461fe2ae-dd52-40f1-b6ba-18b02e15aecd">
+
+#### Do xfac remove GNOME this will improve performace 10x trust me
+
 <img width="1593" alt="Screen Shot 2023-08-14 at 11 10 33 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/615077c9-7fac-494f-b05b-3af65921c16a">
 
 #### Yes 
@@ -89,4 +93,7 @@ dth="1597" alt="Screen Shot 2023-08-14 at 11 18 17 AM" src="https://github.com/k
 <img width="1605" alt="Screen Shot 2023-08-14 at 11 19 28 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/e5e70ce7-cdef-4015-b4f4-5d2b50b87089">
 
 #### Done now you can start the lagging
+
+### After notes
+
 
