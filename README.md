@@ -45,3 +45,48 @@ So the subject specifies that you need penultimate version of Debian, right now 
 
 #### Should be like this!
 
+<img width="1274" alt="Screen Shot 2023-08-14 at 11 03 57 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/f4320647-d567-460d-85a0-8d086c8d591c">
+
+#### Install
+
+<img width="1596" alt="Screen Shot 2023-08-14 at 11 04 19 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/289cb12e-58dd-44e1-9b28-d05f414780bc">
+
+#### Language
+
+<img width="1602" alt="Screen Shot 2023-08-14 at 11 04 48 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/7600d43d-a372-453b-a29d-2937d5fe1906">
+
+#### Region
+
+<img width="1597" alt="Screen Shot 2023-08-14 at 11 06 11 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/971ea7de-7ba4-4e4a-b629-60c78ec25389">
+
+#### Dosen't matter
+
+<img width="1589" alt="Screen Shot 2023-08-14 at 11 07 34 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/33325b61-fefa-4231-a8e9-2cc0274fe97e">
+
+#### Password make sure that you remember it
+
+<img width="1596" alt="Screen Shot 2023-08-14 at 11 08 06 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/debe1cbb-3f5d-4d68-a941-60e6dee9322b">
+
+#### Nick
+
+<img width="1591" alt="Screen Shot 2023-08-14 at 11 09 33 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/e95af507-fd8e-404a-bba9-a3aa68513a7e">
+
+#### Just do guided
+
+<img width="1594" alt="Screen Shot 2023-08-14 at 11 10 09 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/19945df3-e459-44f9-b8b0-dc5cb2a99673">
+
+#### No need to partion
+
+<img width="1593" alt="Screen Shot 2023-08-14 at 11 10 33 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/615077c9-7fac-494f-b05b-3af65921c16a">
+
+#### Yes 
+
+<img wi<img width="1585" alt="Screen Shot 2023-08-14 at 11 18 35 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/ac7e2731-4541-49b8-b6af-b0ac679732cd">
+dth="1597" alt="Screen Shot 2023-08-14 at 11 18 17 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/c81afb12-b6f0-44d7-b4e0-84266118b3cb">
+
+#### Yes
+
+<img width="1605" alt="Screen Shot 2023-08-14 at 11 19 28 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/e5e70ce7-cdef-4015-b4f4-5d2b50b87089">
+
+#### Done now you can start the lagging
+
