@@ -23,8 +23,15 @@
 
 #### 3. Simplify the life 
 #### 4. control x to save
-#### 5. apt install -y sudo ufw docker docker-compose make
+#### 5. apt install -y sudo ufw docker docker-compose make git
 
 <img width="772" alt="Screen Shot 2023-08-15 at 9 36 36 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/f207931e-8942-4851-be8d-1ab61bff43ac">
 
-#### allowing the ports trought the ufw 42 and 443
+#### 6. allowing the ports trought the ufw 42 and 443
+
+<img width="695" alt="Screen Shot 2023-08-15 at 9 43 49 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/5965d259-f189-4b3e-b609-c3cc7db8c46a">
+
+<img width="850" alt="Screen Shot 2023-08-15 at 9 43 39 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/d9604187-0d02-4f09-88b4-d97c7343ffca">
+
+#### 7. Settings -> Adapter Tab -> PortForwarding -> Add the ports
+#### 8. Now connect and lagg less ssh nick@localhost -p 42
