@@ -35,3 +35,7 @@
 
 #### 7. Settings -> Adapter Tab -> PortForwarding -> Add the ports
 #### 8. Now connect and lagg less ssh nick@localhost -p 42
+
+### ADDITIONAL THINGS TO DO
+
+### You can add your user to sudoers file to avoid pain nano /etc/sudoers give the same permisions as root
