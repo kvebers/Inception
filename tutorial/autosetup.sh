@@ -1,40 +1,43 @@
-mkdir srcs
+FOLDER_1="srcs"
+FOLDER_2="mand"
+
+mkdir $FOLDER_1
 touch Makefile
-mkdir srcs/mand
-touch srcs/docker-compose.yml
-touch srcs/.env
-mkdir srcs/mand/mariadb
-mkdir srcs/mand/mariadb/conf
-touch srcs/mand/mariadb/conf/create_db.sh
-mkdir srcs/mand/mariadb/tools
-echo "" > srcs/mand/mariadb/tools/.gitkeep
-touch srcs/mand/mariadb/Dockerfile
-touch srcs/mand/mariadb/.dockerignore
-echo ".git" > srcs/mand/mariadb/.dockerignore
-echo ".env" >> srcs/mand/mariadb/.dockerignore
-mkdir srcs/mand/nginx
-mkdir srcs/mand/nginx/conf
-touch srcs/mand/nginx/conf/nginx.conf
-mkdir srcs/mand/nginx/tools
-touch srcs/mand/nginx/Dockerfile
-echo ".git" > srcs/mand/mariadb/.dockerignore
-echo ".env" >> srcs/mand/mariadb/.dockerignore
-mkdir srcs/mand/tools
-mkdir srcs/mand/wordpress
-mkdir srcs/mand/wordpress/conf
-touch srcs/mand/wordpress/conf/wp-config-create.sh
-mkdir srcs/mand/wordpress/tools
-echo "" > srcs/mand/wordpress/tools/.gitkeep
-touch srcs/mand/wordpress/Dockerfile
-touch srcs/mand/wordpress/.dockerignore
-echo ".git" > srcs/mand/wordpress/.dockerignore
-echo ".env" >> srcs/mand/wordpress/.dockerignore
+mkdir $FOLDER_1/$FOLDER_2
+touch $FOLDER_1/docker-compose.yml
+touch $FOLDER_1/.env
+mkdir $FOLDER_1/$FOLDER_2/mariadb
+mkdir $FOLDER_1/$FOLDER_2/mariadb/conf
+touch $FOLDER_1/$FOLDER_2/mariadb/conf/create_db.sh
+mkdir $FOLDER_1/$FOLDER_2/mariadb/tools
+echo "" > $FOLDER_1/$FOLDER_2/mariadb/tools/.gitkeep
+touch $FOLDER_1/$FOLDER_2/mariadb/Dockerfile
+touch $FOLDER_1/$FOLDER_2/mariadb/.dockerignore
+echo ".git" > $FOLDER_1/$FOLDER_2/mariadb/.dockerignore
+echo ".env" >> $FOLDER_1/$FOLDER_2/mariadb/.dockerignore
+mkdir $FOLDER_1/$FOLDER_2/nginx
+mkdir $FOLDER_1/$FOLDER_2/nginx/conf
+touch $FOLDER_1/$FOLDER_2/nginx/conf/nginx.conf
+mkdir $FOLDER_1/$FOLDER_2/nginx/tools
+touch $FOLDER_1/$FOLDER_2/nginx/Dockerfile
+echo ".git" > $FOLDER_1/$FOLDER_2/mariadb/.dockerignore
+echo ".env" >> $FOLDER_1/$FOLDER_2/mariadb/.dockerignore
+mkdir $FOLDER_1/$FOLDER_2/tools
+mkdir $FOLDER_1/$FOLDER_2/wordpress
+mkdir $FOLDER_1/$FOLDER_2/wordpress/conf
+touch $FOLDER_1/$FOLDER_2/wordpress/conf/wp-config-create.sh
+mkdir $FOLDER_1/$FOLDER_2/wordpress/tools
+echo "" > $FOLDER_1/$FOLDER_2/wordpress/tools/.gitkeep
+touch $FOLDER_1/$FOLDER_2/wordpress/Dockerfile
+touch $FOLDER_1/$FOLDER_2/wordpress/.dockerignore
+echo ".git" > $FOLDER_1/$FOLDER_2/wordpress/.dockerignore
+echo ".env" >> $FOLDER_1/$FOLDER_2/wordpress/.dockerignore
 touch .gitignore
 echo ".env" >> .gitignore
-echo "DOMAIN_NAME=$USER.42.fr" > srcs/.env
-echo "CERT_=./mand/tools/$USER.42.fr.crt" >> srcs/.env
-echo "KEY_=./mand/tools/$USER.42.fr.key" >> srcs/.env
-echo "DB_NAME=wordpress" >> srcs/.env
-echo "DB_ROOT=rootpass" >> srcs/.env
-echo "DB_USER=wpuser" >> srcs/.env
-echo "DB_PASS=wppass" >> srcs/.env
+echo "DOMAIN_NAME=$USER.42.fr" > $FOLDER_1/.env
+echo "CERT_=./$FOLDER_2/tools/$USER.42.fr.crt" >> $FOLDER_1/.env
+echo "KEY_=./$FOLDER_2/tools/$USER.42.fr.key" >> $FOLDER_1/.env
+echo "DB_NAME=wordpress" >> $FOLDER_1/.env
+echo "DB_ROOT=rootpass" >> $FOLDER_1/.env
+echo "DB_USER=wpuser" >> $FOLDER_1/.env
+echo "DB_PASS=wppass" >> $FOLDER_1/.env
