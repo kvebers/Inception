@@ -8,5 +8,5 @@
 
 ## [SCRIPT FOR SETTING UP FOLDERS](https://github.com/kvebers/Inception-Tutorial/blob/main/tutorial/autosetup.sh)
 
-## [SET UP THE LOCALHOST](https://github.com/kvebers/Inception-Tutorial/blob/main/tutorial/PART_4.md)
+## [SETUP THE LOCALHOST](https://github.com/kvebers/Inception-Tutorial/blob/main/tutorial/PART_4.md)
 
