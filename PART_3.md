@@ -1,7 +1,8 @@
 # LETS SET UP THE STRUCTURE OF THE CODE BASE
 
-<img width="355" alt="Screen Shot 2023-08-15 at 12 23 10 PM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/ac99a82f-66d5-4ddb-aa44-aee1c5a6848b">
+<img width="355" alt="Screen Shot 2023-08-15 at 12 23 10 PM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/9b7ce0c9-2771-4b16-9aef-82ca23c78f17">
 
+#### You can also lunch the BASH script and it will populate the scene with all the data
 #### put the .env in .gitignore
 
 #### Now once you have the folder structure ready
