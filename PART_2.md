@@ -27,7 +27,9 @@
 
 <img width="772" alt="Screen Shot 2023-08-15 at 9 36 36 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/f207931e-8942-4851-be8d-1ab61bff43ac">
 
-#### 6. allowing the ports trought the ufw 42 and 443
+#### 6. allowing the ports trought the ufw 42, 80 and 443 
+
+### 80 as well, since you need it for communications for Internet Communication Protocol
 
 <img width="695" alt="Screen Shot 2023-08-15 at 9 43 49 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/5965d259-f189-4b3e-b609-c3cc7db8c46a">
 
@@ -35,3 +37,8 @@
 
 #### 7. Settings -> Adapter Tab -> PortForwarding -> Add the ports
 #### 8. Now connect and lagg less ssh nick@localhost -p 42
+
+### ADDITIONAL THINGS TO DO
+
+#### 1. You can add your user to sudoers file to avoid pain nano /etc/sudoers give the same permisions as root
+#### 2. sudo usermod -aG docker [nick] -> groups [nick] add the user to a docker group 
