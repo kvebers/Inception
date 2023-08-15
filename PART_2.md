@@ -10,6 +10,8 @@
 
 <img width="1702" alt="Screen Shot 2023-08-14 at 5 46 24 PM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/28b8ae7f-1334-4910-85fc-4446c83e4d75">
 
+#### P.S. Remove #before as well.
+
 #### 0. su -
 #### 1. nano /etc/ssh/sshd_config
 
@@ -21,3 +23,5 @@
 
 #### 3. Simplify the life 
 #### 4. control x to save
+#### 5. apt install -y sudo ufw docker docker-compose make
+
