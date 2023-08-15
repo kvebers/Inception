@@ -25,3 +25,6 @@
 #### 4. control x to save
 #### 5. apt install -y sudo ufw docker docker-compose make
 
+<img width="772" alt="Screen Shot 2023-08-15 at 9 36 36 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/f207931e-8942-4851-be8d-1ab61bff43ac">
+
+#### allowing the ports trought the ufw 42 and 443
