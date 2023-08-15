@@ -3,7 +3,6 @@ touch Makefile
 mkdir srcs/mand
 touch srcs/docker-compose.yml
 touch srcs/.env
-mkdir srcs/mand/bonus
 mkdir srcs/mand/mariadb
 mkdir srcs/mand/mariadb/conf
 touch srcs/mand/mariadb/conf/create_db.sh
@@ -30,3 +29,12 @@ touch srcs/mand/wordpress/Dockerfile
 touch srcs/mand/wordpress/.dockerignore
 echo ".git" > srcs/mand/wordpress/.dockerignore
 echo ".env" >> srcs/mand/wordpress/.dockerignore
+touch .gitignore
+echo ".env" >> .gitignore
+echo "DOMAIN_NAME=$USER.42.fr" > srcs/.env
+echo "CERT_=./mand/tools/$USER.42.fr.crt" >> srcs/.env
+echo "KEY_=./mand/tools/$USER.42.fr.key" >> srcs/.env
+echo "DB_NAME=wordpress" >> srcs/.env
+echo "DB_ROOT=rootpass" >> srcs/.env
+echo "DB_USER=wpuser" >> srcs/.env
+echo "DB_PASS=wppass" >> srcs/.env
