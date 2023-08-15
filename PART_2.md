@@ -29,6 +29,8 @@
 
 #### 6. allowing the ports trought the ufw 42, 80 and 443 
 
+### 80 as well, since you need it for communications for Internet Communication Protocol
+
 <img width="695" alt="Screen Shot 2023-08-15 at 9 43 49 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/5965d259-f189-4b3e-b609-c3cc7db8c46a">
 
 <img width="850" alt="Screen Shot 2023-08-15 at 9 43 39 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/d9604187-0d02-4f09-88b4-d97c7343ffca">
