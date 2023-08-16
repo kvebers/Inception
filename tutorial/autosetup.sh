@@ -1,5 +1,5 @@
 FOLDER_1="srcs"
-FOLDER_2="mand"
+FOLDER_2="requirements"
 
 mkdir $FOLDER_1
 touch Makefile
@@ -32,8 +32,6 @@ touch $FOLDER_1/$FOLDER_2/wordpress/Dockerfile
 touch $FOLDER_1/$FOLDER_2/wordpress/.dockerignore
 echo ".git" > $FOLDER_1/$FOLDER_2/wordpress/.dockerignore
 echo ".env" >> $FOLDER_1/$FOLDER_2/wordpress/.dockerignore
-touch .gitignore
-echo ".env" >> .gitignore
 echo "DOMAIN_NAME=$USER.42.fr" > $FOLDER_1/.env
 echo "CERT_=./$FOLDER_2/tools/$USER.42.fr.crt" >> $FOLDER_1/.env
 echo "KEY_=./$FOLDER_2/tools/$USER.42.fr.key" >> $FOLDER_1/.env

@@ -1,7 +1,7 @@
 # SPecify the folder structure you want
 
 FOLDER_1="srcs"
-FOLDER_2="mand"
+FOLDER_2="requirements"
 
 # setup the env
 
@@ -20,8 +20,3 @@ cd ~/$FOLDER_1/$FOLDER_2/tools/
 mkcert kvebers.42.fr
 mv kvebers.42.fr-key.pem kvebers.42.fr.key
 mv kvebers.42.fr.pem kvebers.42.fr.crt
-
-
-
-
-
