@@ -2,8 +2,8 @@ DOCKER_COMPOSE = docker-compose
 COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
 
-include $(ENV_FILE)
-export
+# include $(ENV_FILE)
+# export
 
 build:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build

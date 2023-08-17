@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  nginx:
+    image:
+      custom
+    build:
+      context: requirements/nginx
+    ports:
+      - "443:443"
+    networks:
+      - mynetwork
+    restart: always
+
+  wordpress:
+    build:
+      context: requirements/wordpress
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+    volumes:
+      - wordpress-files:/var/www/html
+    networks:
+      - mynetwork
+    restart: always
+
+  mariadb:
+    build:
+      context: requirements/mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - mynetwork
+    restart: always
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  wordpress-files:
+  mariadb-data:
