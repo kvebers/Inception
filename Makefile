@@ -2,8 +2,8 @@ DOCKER_COMPOSE = docker-compose
 COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
 
-# include $(ENV_FILE)
-# export
+include $(ENV_FILE)
+export
 
 build:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
@@ -23,15 +23,18 @@ clean: down
 
 fclean:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
-	docker stop $$(docker ps -qa)
+	docker stop $$(docker ps -aq) || true
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
 
 lunch: build start
 
-restart: stop start
+re: stop start
 
-re: fclean all
+all: build
 
-.PHONY: build start stop restart down re fclean clean lunch
+log:
+	docker logs srcs_nginx_1 
+
+.PHONY: build start stop restart down re fclean clean lunch all
