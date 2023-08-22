@@ -7,7 +7,6 @@ export
 
 build:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
-	@export $(shell cat ENV_FILE)
 
 start:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
@@ -35,9 +34,12 @@ rebuild: build start
 all: build
 
 log:
+	docker logs mariadb
+	
+logs:
 	docker logs mariadb 
 
 ps:
 	docker ps
 
-.PHONY: build start rebuild stop re fclean clean lunch all
+.PHONY: build start rebuild stop re fclean clean lunch all logs log

@@ -41,6 +41,13 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      ROOT_PASS: ${ROOT_PASS}
+      ROOT_USER: ${ROOT_USER}
+      NORM_USER: ${NORM_USER}
+      NORM_PASS: ${NORM_PASS}
+      DB_NAME: ${DB_NAME}
+      MYSQL_SOCKET: ${MYSQL_SOCKET}
     # environment:
       # DB_NAME: ${DB_NAME}
       # ROOT_PASS: ${ROOT_PASS}
