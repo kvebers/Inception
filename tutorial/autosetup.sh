@@ -8,7 +8,7 @@ touch $FOLDER_1/docker-compose.yml
 touch $FOLDER_1/.env
 mkdir $FOLDER_1/$FOLDER_2/mariadb
 mkdir $FOLDER_1/$FOLDER_2/mariadb/conf
-touch $FOLDER_1/$FOLDER_2/mariadb/conf/create_db.sh
+touch $FOLDER_1/$FOLDER_2/mariadb/conf/db.sh
 mkdir $FOLDER_1/$FOLDER_2/mariadb/tools
 echo "" > $FOLDER_1/$FOLDER_2/mariadb/tools/.gitkeep
 touch $FOLDER_1/$FOLDER_2/mariadb/Dockerfile
