@@ -11,9 +11,6 @@ build:
 start:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
-stop:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
-
 down:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 
@@ -30,11 +27,11 @@ fclean:
 
 lunch: build start
 
-re: stop start
+re: down start
 
 all: build
 
 log:
 	docker logs srcs_nginx_1 
 
-.PHONY: build start stop restart down re fclean clean lunch all
+.PHONY: build start restart down re fclean clean lunch all
