@@ -1,6 +1,6 @@
 FROM debian:bullseye
-# RUN useradd -ms /bin/bash nginxuser
-# USER nginxuser
+RUN useradd -ms /bin/bash nginxuser
+USER nginxuser
 RUN sudo apt-get update && \
     sudo apt-get install -y nginx && \
     sudo apt-get clean && \
