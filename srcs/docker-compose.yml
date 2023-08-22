@@ -29,20 +29,20 @@ services:
 #     networks:
 #       - mynetwork
 #     restart: always
-
-#   mariadb:
-#     image: mariadb
-#     environment:
-#       MYSQL_ROOT_HOST: '%'
-#       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#       MYSQL_USER: ${MYSQL_USER}
-#       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-#       MYSQL_DATABASE: ${MYSQL_DATABASE}
-#     volumes:
-#       - mariadb-data:/var/lib/mysql
-#     networks:
-#       - mynetwork
-#     restart: always
+  mariadb:
+    build:
+      context: .
+      dockerfile: mariadb/Dockerfile
+      args:
+        DB_NAME: ${DB_NAME}
+        ROOT_PASS: ${ROOT_PASS}
+        ROOT_USER: ${ROOT_USER}
+        NORM_USER: ${NORM_USER}
+        NORM_PASS: ${NORM_PASS}
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    restart: always
 
 # networks:
 #   mynetwork:
