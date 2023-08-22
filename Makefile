@@ -7,19 +7,20 @@ export
 
 build:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
+	@export $(shell cat ENV_FILE)
 
 start:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
-down:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
+stop:
+	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
 
-clean: down
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
+clean: stop
+	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
 	docker system prune -a
 
 fclean:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
+	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
 	docker stop $$(docker ps -aq) || true
 	docker system prune --all --force --volumes
 	docker network prune --force
@@ -27,11 +28,16 @@ fclean:
 
 lunch: build start
 
-re: down start
+re: stop build start
+
+rebuild: build start
 
 all: build
 
 log:
-	docker logs srcs_nginx_1 
+	docker logs mariadb 
 
-.PHONY: build start restart down re fclean clean lunch all
+ps:
+	docker ps
+
+.PHONY: build start rebuild stop re fclean clean lunch all

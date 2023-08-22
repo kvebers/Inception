@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if ! command -v mysql &> /dev/null; then
     apt-get update
     apt-get install -y mysql-server mysql-client
@@ -19,7 +21,6 @@ fi
 
 existing_normal_user=$(mysql -e "SELECT User FROM mysql.user WHERE User='$NORM_USER';" | grep "$NORM_USER")
 if [ -n "$existing_normal_user" ]; then
-else
     mysql -e "CREATE USER '$NORM_USER'@'localhost' IDENTIFIED BY '$NORM_PASS';"
     mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$NORM_USER'@'localhost';"
     mysql -e "FLUSH PRIVILEGES;"

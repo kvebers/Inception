@@ -1,19 +1,52 @@
-version: '3.1'
+version: '3.3'
+
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      device: /home/maria
+      type: none
+      o: bind
+
+networks:
+  ok:
 
 services:
   nginx:
+    container_name:
+      nginx
     build:
       context: .
       dockerfile: requirements/nginx/Dockerfile
-    container_name: nginx
-#    depends_on:
-#      - wordpress
     ports:
       - "443:443"
     volumes:
       - ./requirements/nginx/conf/:/etc/nginx/http.d/
       - ./requirements/nginx/tools:/etc/nginx/ssl/ 
+    networks:
+      - ok
     restart: always
+
+  mariadb:
+    container_name: mariadb
+    build:
+      context: .
+      dockerfile: requirements/mariadb/Dockerfile
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - ok
+    restart: always
+    env_file:
+      - .env
+    # environment:
+      # DB_NAME: ${DB_NAME}
+      # ROOT_PASS: ${ROOT_PASS}
+      # ROOT_USER: ${ROOT_USER}
+      # NORM_USER: ${NORM_USER}
+      # NORM_PASS: ${NORM_PASS}
 
 #   wordpress:
 #     volumes:
@@ -29,25 +62,7 @@ services:
 #     networks:
 #       - mynetwork
 #     restart: always
-  mariadb:
-    build:
-      context: .
-      dockerfile: mariadb/Dockerfile
-      args:
-        DB_NAME: ${DB_NAME}
-        ROOT_PASS: ${ROOT_PASS}
-        ROOT_USER: ${ROOT_USER}
-        NORM_USER: ${NORM_USER}
-        NORM_PASS: ${NORM_PASS}
-    container_name: mariadb
-    ports:
-      - "3306:3306"
-    restart: always
-
 # networks:
 #   mynetwork:
 #     driver: bridge
 
-# volumes:
-#   wp-volume:
-#   mariadb-data:
