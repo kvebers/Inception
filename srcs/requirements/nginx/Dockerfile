@@ -1,9 +1,9 @@
 FROM debian:bullseye
-RUN useradd -ms /bin/bash nginxuser
-USER nginxuser
-RUN sudo apt-get update && \
-    sudo apt-get install -y nginx && \
-    sudo apt-get clean && \
-    sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* /var/cache/apt/archives/*.deb
+RUN apt-get update && \
+    apt-get install -y nginx && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* /var/cache/apt/archives/*.deb
 EXPOSE 443
+RUN useradd -ms /bin/bash impostor
+USER impostor
 CMD ["nginx", "-g", "daemon off;"]

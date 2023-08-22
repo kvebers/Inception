@@ -16,5 +16,5 @@ echo "MYSQL_DATABASE=wordpress" >> $FOLDER_1/.env
 
 # setup the Certificates
 mkcert $USER.42.fr
-mv $USER.42.fr-key.pem ./srcs/requirements/nginx/cert/$USER.42.fr.key
-mv $USER.42.fr.pem ./srcs/requirements/nginx/cert/$USER.42.fr.crt
+mv $USER.42.fr-key.pem ./$FOLDER_1/$FOLDER_2/nginx/cert/$USER.42.fr.key
+mv $USER.42.fr.pem ./$FOLDER_1/$FOLDER_2/nginx/cert/$USER.42.fr.crt

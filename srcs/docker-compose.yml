@@ -1,63 +1,53 @@
 version: '3.1'
 
 services:
-  # nginx:
-  #   image:
-  #     custom
-  #   build:
-  #     context: requirements/nginx
-  #   ports:
-  #     - "443:443"
-  #   networks:
-  #     - mynetwork
   nginx:
-    image: nginx
-    volumes:
-      - wp-volume:/var/www/html/
-      - ./requirements/nginx/conf/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
-      - ./requirements/nginx/cert/:/etc/nginx/cert/:ro
+    build:
+      context: .
+      dockerfile: requirements/nginx/Dockerfile
+    container_name: nginx
+#    depends_on:
+#      - wordpress
     ports:
       - "443:443"
-    environment:
-      - NGINX_HOST=kvebers.42.fr
-      - NGINX_PORT=443
-    networks:
-      - mynetwork
-    restart: always
-
-  wordpress:
     volumes:
-      - wp-volume:/var/www/html/
-    image: wordpress:6.3.0-fpm
-    environment:
-      WP_DEBUG: "true"
-      WP_DEBUG_LOG: php://stdout
-      WORDPRESS_DB_HOST: mariadb
-      WORDPRESS_DB_USER: ${MYSQL_USER}
-      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
-      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
-    networks:
-      - mynetwork
+      - ./requirements/nginx/conf/:/etc/nginx/http.d/
+      - ./requirements/nginx/tools:/etc/nginx/ssl/ 
     restart: always
 
-  mariadb:
-    image: mariadb
-    environment:
-      MYSQL_ROOT_HOST: '%'
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-    volumes:
-      - mariadb-data:/var/lib/mysql
-    networks:
-      - mynetwork
-    restart: always
+#   wordpress:
+#     volumes:
+#       - wp-volume:/var/www/html/
+#     image: wordpress:6.3.0-fpm
+#     environment:
+#       WP_DEBUG: "true"
+#       WP_DEBUG_LOG: php://stdout
+#       WORDPRESS_DB_HOST: mariadb
+#       WORDPRESS_DB_USER: ${MYSQL_USER}
+#       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+#       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+#     networks:
+#       - mynetwork
+#     restart: always
 
-networks:
-  mynetwork:
-    driver: bridge
+#   mariadb:
+#     image: mariadb
+#     environment:
+#       MYSQL_ROOT_HOST: '%'
+#       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#       MYSQL_USER: ${MYSQL_USER}
+#       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#       MYSQL_DATABASE: ${MYSQL_DATABASE}
+#     volumes:
+#       - mariadb-data:/var/lib/mysql
+#     networks:
+#       - mynetwork
+#     restart: always
 
-volumes:
-  wp-volume:
-  mariadb-data:
+# networks:
+#   mynetwork:
+#     driver: bridge
+
+# volumes:
+#   wp-volume:
+#   mariadb-data:
