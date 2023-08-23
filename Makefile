@@ -42,4 +42,7 @@ logs:
 ps:
 	docker ps
 
-.PHONY: build start rebuild stop re fclean clean lunch all logs log
+db:
+	docker exec -it mariadb mysql -u bash
+
+.PHONY: build start rebuild stop re fclean clean lunch all logs log db
