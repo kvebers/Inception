@@ -19,3 +19,11 @@ echo "NORM_PASS=problem" >> $FOLDER_1/.env
 mkcert $USER.42.fr
 mv $USER.42.fr-key.pem ./$FOLDER_1/$FOLDER_2/nginx/cert/$USER.42.fr.key
 mv $USER.42.fr.pem ./$FOLDER_1/$FOLDER_2/nginx/cert/$USER.42.fr.crt
+
+
+
+mkdir /home/$USER/data
+mkdir /home/$USER/data/maria
+mkdir /home/$USER/data/wp
+
+docker network create ok
