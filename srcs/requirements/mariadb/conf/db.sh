@@ -16,7 +16,7 @@ existing_root_user=$(mysql -e "SELECT User FROM mysql.user WHERE User='$ROOT_USE
 if [ -n "$existing_root_user" ]; then
     echo "User '$ROOT_USER' already exists."
 else
-    mysql -e "ALTER USER '$ROOT_USER'@'localhost' IDENTIFIED BY '$ROOT_PASS';"
+    mysql -e "SET PASSWORD FOR '$ROOT_USER'@'localhost' = PASSWORD('$ROOT_PASS');"
 fi
 
 existing_normal_user=$(mysql -e "SELECT User FROM mysql.user WHERE User='$NORM_USER';" | grep "$NORM_USER")

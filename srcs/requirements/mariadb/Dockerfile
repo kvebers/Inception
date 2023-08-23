@@ -11,6 +11,8 @@ RUN mkdir -p /run/mysqld && chown mysql:mysql /run/mysqld
 
 EXPOSE 3306
 ENV MYSQL_SOCKET=/var/run/mysqld/mysqld.sock
-USER mysql
-# COPY db.sh .
-CMD ["mysqld"]
+# USER mysql
+COPY requirements/mariadb/conf/db.sh /db.sh
+RUN chmod +x /db.sh
+RUN bash db.sh
+CMD ["mysqld", "--bind-address=0.0.0.0"]
