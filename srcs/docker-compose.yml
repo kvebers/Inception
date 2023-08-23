@@ -76,7 +76,4 @@ services:
     volumes:
       - wp:/var/www/
     restart: always
-# networks:
-#   mynetwork:
-#     driver: bridge
-
+    
