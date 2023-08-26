@@ -6,7 +6,7 @@ include $(ENV_FILE)
 export
 
 build:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
+	sudo $(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
 start:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
