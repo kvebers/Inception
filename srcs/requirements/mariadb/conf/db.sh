@@ -21,8 +21,8 @@ fi
 
 existing_normal_user=$(mysql -e "SELECT User FROM mysql.user WHERE User='$NORM_USER';" | grep "$NORM_USER")
 if [ -n "$existing_normal_user" ]; then
-    mysql -e "CREATE USER '$NORM_USER'@'localhost' IDENTIFIED BY '$NORM_PASS';"
-    mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$NORM_USER'@'localhost';"
+    mysql -e "CREATE USER '$NORM_USER'@'%' IDENTIFIED BY '$NORM_PASS';"
+    mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$NORM_USER'@'%';"
     mysql -e "FLUSH PRIVILEGES;"
 fi
 
