@@ -1,6 +1,10 @@
-FROM php:8.0-fpm-bullseye
+FROM debian:11
 # Install required PHP extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN apt-get update && apt-get install -y \
+    php \
+    apache2 \
+    mysql-server \
+    php-mysql
 
 
 WORKDIR /var/www/html
@@ -8,3 +12,4 @@ WORKDIR /var/www/html
 # COPY ./wordpress-files/ .
 EXPOSE 9000
 CMD ["php-fpm"]
+
