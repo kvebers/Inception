@@ -1,15 +1,4 @@
-FROM debian:11
-# Install required PHP extensions
-RUN apt-get update && apt-get install -y \
-    php \
-    apache2 \
-    mysql-server \
-    php-mysql
-
-
-WORKDIR /var/www/html
-
-# COPY ./wordpress-files/ .
+# Use Debian Bulseye as the base image
+FROM debian:bullseye
 EXPOSE 9000
-CMD ["php-fpm"]
-
+ENTRYPOINT ["tail", "-f", "/dev/null"]
