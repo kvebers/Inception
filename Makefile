@@ -24,6 +24,7 @@ fclean:
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
+	rm -rf ./srcs/var
 
 lunch: build start
 
