@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if ! command -v mysql &> /dev/null; then
     apt-get update
     apt-get install -y mysql-server mysql-client
@@ -25,5 +26,9 @@ if [ -n "$existing_normal_user" ]; then
     mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$NORM_USER'@'%';"
     mysql -e "FLUSH PRIVILEGES;"
 fi
+
+while true; do
+  sleep 3600
+done
 
 exit 0
