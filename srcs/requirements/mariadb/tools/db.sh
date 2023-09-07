@@ -27,8 +27,8 @@ if [ -n "$existing_normal_user" ]; then
     mysql -e "FLUSH PRIVILEGES;"
 fi
 
-while true; do
-  sleep 3600
-done
+exec mysqld_safe
 
-exit 0
+# while true; do
+#   sleep 3600
+# done
