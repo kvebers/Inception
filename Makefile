@@ -34,12 +34,6 @@ rebuild: build start
 
 all: build
 
-log:
-	docker logs mariadb
-	
-logs:
-	docker logs mariadb 
-
 ps:
 	docker ps
 

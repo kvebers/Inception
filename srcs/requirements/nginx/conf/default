@@ -9,14 +9,19 @@ server {
         root /var/www/html;
         index index.html index.php index.htm index.nginx-debian.html;
 
-        server_name kvebers.42.fr www.kvebers.42.fr;
+        server_name kvebers.42.fr;
 
         location / {
+                allow all;
                 try_files $uri $uri/ =404;
         }
 
-        location /status {
+        location ~ \.php$ {
+                try_files $uri =404;
                 include fastcgi_params;
-                fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass wordpress:9000;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         }
 }

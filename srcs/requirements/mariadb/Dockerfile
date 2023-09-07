@@ -1,17 +1,12 @@
 FROM alpine:3.18
 
-# Environment variables
-# Install necessary packages
 RUN apk --no-cache add mariadb
 RUN apk --no-cache add mariadb-client
-# Copy your script
 COPY ./requirements/mariadb/conf/my.cnf /usr/local/bin/my.cnf
 RUN mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-
 COPY ./requirements/mariadb/tools/db.sh /usr/local/bin/db.sh
 RUN chmod +x /usr/local/bin/db.sh
 EXPOSE 3306
-# Make the script as the default command to run
 CMD ["/usr/local/bin/db.sh"]
 
 
