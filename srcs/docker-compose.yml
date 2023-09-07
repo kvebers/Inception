@@ -28,8 +28,6 @@ services:
     build:
       context: .
       dockerfile: requirements/mariadb/Dockerfile
-    volumes:
-      - ./var/lib/mysql:/var/lib/mysql
     networks:
       - ok
     restart: always

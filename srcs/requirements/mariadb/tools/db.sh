@@ -1,9 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
+
+mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
+mysqld_safe &
+for i in {30..0}; do
+    if echo 'SELECT 1' | mysql &> /dev/null; then
+        break
+    fi
+    sleep 1
+done
+
+if [ "$i" = 0 ]; then
+    echo >&2 "MariaDB did not start"
+    exit 1
+fi
 
 if ! command -v mysql &> /dev/null; then
-    apt-get update
-    apt-get install -y mysql-server mysql-client
+    apk update
+    apk add mariadb mariadb-client
 fi
 
 existing_db=$(mysql -e "SHOW DATABASES LIKE '$DB_NAME';" | grep "$DB_NAME")
@@ -17,18 +31,15 @@ existing_root_user=$(mysql -e "SELECT User FROM mysql.user WHERE User='$ROOT_USE
 if [ -n "$existing_root_user" ]; then
     echo "User '$ROOT_USER' already exists."
 else
-    mysql -e "SET PASSWORD FOR '$ROOT_USER'@'localhost' = PASSWORD('$ROOT_PASS');"
+    mysql -e "GRANT ALL ON *.* TO '$ROOT_USER'@'localhost' IDENTIFIED BY '$ROOT_PASS' WITH GRANT OPTION;"
 fi
 
 existing_normal_user=$(mysql -e "SELECT User FROM mysql.user WHERE User='$NORM_USER';" | grep "$NORM_USER")
-if [ -n "$existing_normal_user" ]; then
+if [ -z "$existing_normal_user" ]; then
     mysql -e "CREATE USER '$NORM_USER'@'%' IDENTIFIED BY '$NORM_PASS';"
     mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$NORM_USER'@'%';"
     mysql -e "FLUSH PRIVILEGES;"
 fi
 
-exec mysqld_safe
+wait
 
-# while true; do
-#   sleep 3600
-# done

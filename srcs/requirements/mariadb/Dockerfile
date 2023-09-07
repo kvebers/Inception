@@ -1,19 +1,33 @@
-FROM debian:buster
-RUN apt-get update
-RUN apt-get install -y mariadb-server
-# RUN apt-get install -y mariadb-client
-# RUN mkdir -p /var/run/mysqld
-# RUN chmod 770 /var/run/mysqld
-# RUN chown -R mysql:mysql /var/run/mysqld
-# RUN touch /var/run/mysqld/mysqld.sock
-# RUN chmod 0660 /var/run/mysqld/mysqld.sock
-# ENV MYSQL_SOCKET="/var/run/mysqld/mysqld.sock"
+FROM alpine:3.18
 
-COPY ./requirements/mariadb/tools/my.cnf /etc/mysql/mariadb.conf.d/my.cnf
+# Environment variables
+# Install necessary packages
+RUN apk --no-cache add mariadb
+RUN apk --no-cache add mariadb-client
+# Copy your script
+COPY ./requirements/mariadb/conf/my.cnf /usr/local/bin/my.cnf
+RUN mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
+COPY ./requirements/mariadb/tools/db.sh /usr/local/bin/db.sh
+RUN chmod +x /usr/local/bin/db.sh
 EXPOSE 3306
-RUN service mysql start
-COPY ./requirements/mariadb/tools/db.sh db.sh
-RUN chmod +x /db.sh
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
-ENTRYPOINT ["/db.sh"]
+# Make the script as the default command to run
+CMD ["/usr/local/bin/db.sh"]
+
+
+
+# FROM debian:buster
+# ENV DEBIAN_FRONTEND=non-interactive
+# RUN apt-get update && \
+#     apt-get install -y mariadb-server mariadb-client && \
+#     rm -rf /var/lib/apt/lists/* && \
+#     rm -rf /var/lib/mysql && \
+#     mkdir -p /var/lib/mysql /var/run/mysqld && \
+#     chown -R mysql:mysql /var/lib/mysql /var/run/mysqld && \
+#     chmod 777 /var/run/mysqld
+# EXPOSE 3306
+# COPY ./requirements/mariadb/conf/my.cnf /etc/mysql/my.cnf
+# COPY ./requirements/mariadb/tools/db.sh /db.sh
+# RUN chmod +x /db.sh
+# USER mysql
+# ENTRYPOINT ["/db.sh"]
