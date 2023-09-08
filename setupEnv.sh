@@ -7,8 +7,8 @@ FOLDER_2="requirements"
 
 touch $FOLDER_1/.env
 echo "DOMAIN_NAME=$USER.42.fr" > $FOLDER_1/.env
-echo "CERT_=./$FOLDER_2/tools/$USER.42.fr.crt" >> $FOLDER_1/.env
-echo "KEY_=./$FOLDER_2/tools/$USER.42.fr.key" >> $FOLDER_1/.env
+echo "CERT_=/etc/ssl/certs/kvebers.42.fr.crt" >> $FOLDER_1/.env
+echo "KEY_=/etc/ssl/private/kvebers.42.fr.key" >> $FOLDER_1/.env
 echo "DB_NAME=wordpress" >> $FOLDER_1/.env
 echo "ROOT_PASS=onetwothree" >> $FOLDER_1/.env
 echo "ROOT_USER=noproblem" >> $FOLDER_1/.env
