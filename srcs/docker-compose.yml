@@ -2,18 +2,26 @@ version: "3"
 
 services:
   nginx:
-    image: nginx
     container_name: nginx
     build: ./requirements/nginx
     env_file: .env
     ports:
       - '443:443'
     # volumes:
-    #   - ./wordpress:/path/inside/container:/var/www/html
+    #   - ./wordpress:/var/www/html
     networks:
       - ok
     # depends_on:
     #   - wordpress
+    restart: always
+  mariadb: 
+    container_name: mariadb
+    build: ./requirements/mariadb
+    env_file: .env
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    networks:
+      - ok
     restart: always
 
 
