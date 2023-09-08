@@ -7,8 +7,8 @@ services:
     env_file: .env
     ports:
       - '443:443'
-    # volumes:
-    #   - ./wordpress:/var/www/html
+    volumes:
+      - wordpress-files:/var/www/html
     networks:
       - ok
     # depends_on:
@@ -26,3 +26,17 @@ services:
 networks:
   ok:
     driver: bridge
+
+volumes:
+  wordpress-files:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './wordpress_files'
+  wordpress-db:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './wordpress_db'

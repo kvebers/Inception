@@ -1,15 +1,21 @@
 DOCKER_COMPOSE = docker-compose
 COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
+DIRS := ./wordpress_files ./wordpress_db
 
 include $(ENV_FILE)
 export
 
-build:
+build: dirs
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
-start:
+start: dirs
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
+
+dirs:
+	@for dir in $(DIRS); do \
+	  [ -d $$dir ] || mkdir -p $$dir ; \
+	done
 
 stop:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
@@ -39,4 +45,8 @@ ps:
 db:
 	docker exec -it mariadb mysql -u bash
 
-.PHONY: build start rebuild stop re fclean clean lunch all logs log db
+delete_data:
+	rm -rf wordpress_db
+	rm -rf wordpress_files
+
+.PHONY: build start rebuild stop re fclean clean lunch all logs log db delete_data
