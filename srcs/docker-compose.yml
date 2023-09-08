@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   nginx:
     container_name: nginx
     build: ./requirements/nginx
@@ -11,16 +12,34 @@ services:
       - wordpress-files:/var/www/html
     networks:
       - ok
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
     restart: always
-  mariadb: 
+
+  mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
     env_file: .env
     networks:
       - ok
+    volumes:
+      - wordpress-db:/var/www/html
     restart: always
+
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    build: ./requirements/wordpress
+    env_file: .env
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress-files:/var/www/html
+    networks:
+      - ok
+    restart: always
+
+
 
 
 networks:
