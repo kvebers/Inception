@@ -1,10 +1,10 @@
 FROM alpine:3.18
-RUN apk --no-cache add mariadb 
-RUN apk --no-cache add mariadb-client
-RUN rm -f /var/cache/apk/*
-RUN mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-COPY tools/db.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/db.sh
+RUN apk add mysql 
+RUN apk add mysql-client
+RUN mkdir -p /run/mysqld
+RUN mkdir -p /var/lib/mysql
+COPY tools/db.sh /db.sh
+COPY conf/my.cnf /usr/local/bin/my.cnf
+RUN mariadb-install-db --user=root --datadir=/var/lib/mysql --skip-test-db
 EXPOSE 3306
-ENTRYPOINT ["db.sh"]
-CMD ["mysqld"]
+ENTRYPOINT ["sh", "db.sh"]
