@@ -16,7 +16,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./requirements/nginx/conf/:/etc/nginx/sites-available/
+      - ./requirements/nginx/conf/:/etc/nginx/conf.d/
       - ./requirements/nginx/tools:/etc/nginx/ssl/
       - ./var/www/html:/var/www/html
     networks:
