@@ -1,62 +1,38 @@
-version: '3.3'
+version: "3"
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    build: ./requirements/nginx
+    env_file: .env
+    ports:
+      - '443:443'
+    volumes:
+      - wp:/var/www/html
+    networks:
+      - ok
+    depends_on:
+      - wordpress
+    restart: always
+
 
 networks:
   ok:
     driver: bridge
 
-services:
-  nginx:
-    container_name:
-      nginx
-    depends_on:
-      - wordpress
-    build:
-      context: .
-      dockerfile: requirements/nginx/Dockerfile
-    ports:
-      - "443:443"
-    volumes:
-      - ./requirements/nginx/conf/:/etc/nginx/conf.d/
-      - ./requirements/nginx/tools:/etc/nginx/ssl/
-      - ./var/www/html:/var/www/html
-    networks:
-      - ok
-    restart: always
 
-  mariadb:
-    container_name: mariadb
-    build:
-      context: .
-      dockerfile: requirements/mariadb/Dockerfile
-    networks:
-      - ok
-    restart: always
-    env_file:
-      - .env
-    environment:
-      ROOT_PASS: ${ROOT_PASS}
-      ROOT_USER: ${ROOT_USER}
-      NORM_USER: ${NORM_USER}
-      NORM_PASS: ${NORM_PASS}
-      DB_NAME: ${DB_NAME}
-      MYSQL_SOCKET: ${MYSQL_SOCKET}
+volumes:
+  wp:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/kvebers/data/wordpress'
 
-  wordpress:
-    build:
-      context: .
-      dockerfile: requirements/wordpress/Dockerfile
-    env_file:
-      - .env
-    environment:
-      NORM_USER: ${NORM_USER}
-      NORM_PASS: ${NORM_PASS}
-      DB_NAME: ${DB_NAME}
-    container_name: wordpress
-    depends_on:
-      - mariadb
-    networks:
-      - ok
-    volumes:
-      - "./var/www/html:/var/www/html"
-    restart: always
-    
+  maria:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/kvebers/data/mariadb'

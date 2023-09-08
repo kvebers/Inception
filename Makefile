@@ -24,8 +24,7 @@ fclean:
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
-	sudo rm -rf ./srcs/var
-
+	
 lunch: build start
 
 re: stop build start

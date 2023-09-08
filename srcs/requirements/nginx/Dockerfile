@@ -1,7 +1,6 @@
-FROM debian:bullseye
-RUN apt-get update
-RUN apt-get install -y nginx
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* /var/cache/apt/archives/*.deb
-EXPOSE 443
-CMD ["nginx", "-g", "daemon off;"]
+FROM alpine:3.18
+RUN apk add nginx
+RUN apk add openssl
+COPY tools/certificate.sh .
+COPY conf/default.conf /etc/nginx/http.d/default.conf
+ENTRYPOINT ["sh", "cert.sh"]
