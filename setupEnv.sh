@@ -4,7 +4,7 @@ FOLDER_1="srcs"
 FOLDER_2="requirements"
 
 # setup the env
-
+export INCEPTION_PATH=$(pwd)
 touch $FOLDER_1/.env
 echo "DOMAIN_NAME=$USER.42.fr" > $FOLDER_1/.env
 echo "CERT_=/etc/ssl/certs/$USER.42.fr.crt" >> $FOLDER_1/.env
@@ -19,3 +19,4 @@ echo "WP_PROBLEM_EMAIL=just@problem.com"  >> $FOLDER_1/.env
 echo "WP_NORMAL_PROBLEM=userproblem" >> $FOLDER_1/.env
 echo "WP_NORMAL_PROBLEM_PASS=okeypass" >> $FOLDER_1/.env
 echo "WP_NORMAL_PROBLEM_EMAIL=not@problem.com"  >> $FOLDER_1/.env
+echo "INCEPTION_PATH=$INCEPTION_PATH" >> $FOLDER_1/.env
