@@ -29,8 +29,8 @@ fclean:
 	@docker stop $$(docker ps -aq) || true
 	@docker system prune --all --force --volumes
 	@docker network prune --force
-	@docker volume prune --force
-	
+	@docker volume prune --forceshould not do that in eval
+
 re: stop build start
 
 rebuild: build start
