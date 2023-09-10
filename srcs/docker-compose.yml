@@ -9,7 +9,7 @@ services:
     ports:
       - '443:443'
     volumes:
-      - wordpress-files:/var/www/html
+      - problem-files:/var/www/html
     networks:
       - ok
     depends_on:
@@ -23,7 +23,7 @@ services:
     networks:
       - ok
     volumes:
-      - wordpress-db:/var/www/html
+      - problem-db:/var/www/html
     restart: always
 
   wordpress:
@@ -34,28 +34,25 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - wordpress-files:/var/www/html
+      - problem-files:/var/www/html
     networks:
       - ok
     restart: always
-
-
-
 
 networks:
   ok:
     driver: bridge
 
 volumes:
-  wordpress-files:
+  problem-files:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './wordpress_files'
-  wordpress-db:
+      device: './problem_files'
+  problem-db:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './wordpress_db'
+      device: './problem_db'

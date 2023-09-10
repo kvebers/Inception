@@ -1,16 +1,16 @@
 DOCKER_COMPOSE = docker-compose
 COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
-DIRS := ./wordpress_files ./wordpress_db
+DIRS := ./problem_files ./problem_db
 
 include $(ENV_FILE)
 export
 
-build: dirs
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
+build:
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
-start: dirs
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
+start:
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
 dirs:
 	@for dir in $(DIRS); do \
@@ -18,18 +18,18 @@ dirs:
 	done
 
 stop:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
 
 clean: stop
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
-	docker system prune -a
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
+	@docker system prune -a
 
 fclean:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
-	docker stop $$(docker ps -aq) || true
-	docker system prune --all --force --volumes
-	docker network prune --force
-	docker volume prune --force
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
+	@docker stop $$(docker ps -aq) || true
+	@docker system prune --all --force --volumes
+	@docker network prune --force
+	@docker volume prune --force
 	
 lunch: build start
 
@@ -43,10 +43,33 @@ ps:
 	docker ps
 
 db:
-	docker exec -it mariadb mysql -u bash
+	@docker exec -it mariadb mysql -u sh
 
 delete_data:
-	rm -rf wordpress_db
-	rm -rf wordpress_files
+	@rm -rf problem_db
+	@rm -rf problem_files
+	@docker volume rm srcs_problem-db
+	@docker volume rm srcs_problem-files
 
-.PHONY: build start rebuild stop re fclean clean lunch all logs log db delete_data
+
+env:
+	@bash setupEnv.sh
+
+help:
+	@echo "\033[1;32mThe Makefile guide:\033[0m"
+	@echo "\033[1;90mbuild: Compiles the project\033[0m"
+	@echo "\033[1;32mstart: Well starts the bloody project\033[0m"
+	@echo "\033[1;90mstop: Stops the docker files, obviously\033[0m"
+	@echo "\033[1;32mlunch: Builds and starts the docker file\033[0m"
+	@echo "\033[1;90mclean: Cleans up the project\033[0m"
+	@echo "\033[1;32mfclean: Completely stops the project\033[0m"
+	@echo "\033[1;90mre: Stop, build, and start\033[0m"
+	@echo "\033[1;32mdb: access the bloody db\033[0m"
+	@echo "\033[1;90mps: just docker ps\033[0m"
+	@echo "\033[1;32mdelete_data: deletes all stored data - should not do without reason\033[0m"
+	@echo "\033[1;90mdirs: helper function on make to create directories for data storage for backup\033[0m"
+	@echo "\033[1;32menv: helper function on make to create directories for data storage for backup\033[0m"
+	@echo "\033[1;90mhelp: just help\033[0m"
+
+
+.PHONY: build start rebuild stop re fclean clean lunch all logs log db delete_data help env
