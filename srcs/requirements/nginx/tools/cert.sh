@@ -1,4 +1,17 @@
 #!bin/sh
+
+## port to listen
+## server_name
+## tokens
+## protocols
+## cyphers
+## even more cyphers
+## even more security against DDOS XD
+## index files to read
+## deny upload of images
+## basic page in case of error also 404 error if files not found
+## reading from wordpress PORT:9000
+
 echo '
 server {
     listen 443 ssl;
@@ -41,8 +54,8 @@ server {
 }
 ' > /etc/nginx/http.d/default.conf
 
-
-
+## Generation of SSL certificates
 
 openssl req -x509 -newkey rsa:4096 -keyout ${KEY_} -out ${CERT_} -sha256 -days 365 -nodes -subj "/CN="${DOMAIN_NAME}""
+## Execution of the SSL certificates
 exec nginx -g "daemon off;"
