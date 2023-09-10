@@ -9,7 +9,7 @@ export
 build: dirs
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
-start: dirs
+start:
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
 dirs:
