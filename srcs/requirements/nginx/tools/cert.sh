@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 ## port to listen
 ## server_name

@@ -16,9 +16,10 @@ RUN apk add --no-cache php-xml
 RUN apk add --no-cache php-tokenizer
 RUN apk add --no-cache php-session
 RUN apk add --no-cache php-exif
+RUN apk add --no-cache curl
+RUN apk add --no-cache tar
 WORKDIR /var/www/html
 EXPOSE 9000
-COPY wp_setup.sh /wp_setup.sh
+COPY tools/wp_setup.sh /wp_setup.sh
 RUN chmod +x /wp_setup.sh
 ENTRYPOINT ["/wp_setup.sh"]
-CMD ["php-fpm7", "-F"]

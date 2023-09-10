@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 echo '
 [www]
@@ -21,8 +21,8 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar
     mv wp-cli.phar /usr/local/bin/wp
-    wp config create --dbname=your_db_name --dbuser=your_db_user --dbpass=your_db_pass --dbhost=your_db_host --path='/var/www/html'
-    wp core install --url=your_domain.com --title="Your Blog Title" --admin_user=admin_username --admin_password=admin_password --admin_email=your_email --path='/var/www/html'
+    wp config create --dbname=${MYSQL_PROBLEM} --dbuser=${MYSQL_USER_PROBLEM} --dbpass=${MYSQL_USER_PASSWORD_PROBLEM} --dbhost=mariadb --path='/var/www/html'
+    wp core install --url=${DOMAIN_NAME} --title="PROBLEM" --admin_user=${WP_PROBLEM_ADMIN} --admin_password=${WP_PROBLEM_ADMIN_PASSWORD} --admin_email=${WP_PROBLEM_EMAIL} --path='/var/www/html'
 fi
 
-php-fpm7 -F
+php-fpm81 -F
