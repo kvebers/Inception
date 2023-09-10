@@ -23,6 +23,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     mv wp-cli.phar /usr/local/bin/wp
     wp config create --dbname=${MYSQL_PROBLEM} --dbuser=${MYSQL_USER_PROBLEM} --dbpass=${MYSQL_USER_PASSWORD_PROBLEM} --dbhost=mariadb --path='/var/www/html'
     wp core install --url=${DOMAIN_NAME} --title="PROBLEM" --admin_user=${WP_PROBLEM_ADMIN} --admin_password=${WP_PROBLEM_ADMIN_PASSWORD} --admin_email=${WP_PROBLEM_EMAIL} --path='/var/www/html'
+    wp user create ${WP_NORMAL_PROBLEM} ${WP_NORMAL_PROBLEM_EMAIL} --user_pass=${WP_NORMAL_PROBLEM_PASS}
 fi
 
 php-fpm81 -F
