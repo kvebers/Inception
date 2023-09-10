@@ -49,10 +49,11 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './problem_files'
+      device: ${INCEPTION_PATH}/problem_files
+
   problem-db:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './problem_db'
+      device: ${INCEPTION_PATH}/problem_db
