@@ -8,9 +8,10 @@ export
 
 build:
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
-
-start:
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
+
+#start:
+#	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
 # dirs:
 # 	@for dir in $(DIRS); do \
@@ -31,9 +32,9 @@ fclean:
 	@docker network prune --force
 	@docker volume prune --forceshould not do that in eval
 
-re: stop build start
+re: stop build
 
-rebuild: build start
+rebuild: build
 
 all: build
 
