@@ -1,25 +1,14 @@
 #!bin/sh
 
-# cat > problem.sql <<EOF
-# CREATE DATABASE IF NOT EXISTS {MYSQL_DATABASE};
-# CREATE USER IF NOT EXISTS '{MYSQL_USER}' IDENTIFIED BY '{MYSQL_PASSWORD}';
-# GRANT ALL PRIVILEGES ON {MYSQL_DATABASE}.* TO '{MYSQL_USER}';
-# ALTER USER 'root'@'localhost' IDENTIFIED BY '{MYSQL_ROOT_PASSWORD}';
-# FLUSH PRIVILEGES;
-# EOF
-
-# replace "{MYSQL_DATABASE}" "$MYSQL_PROBLEM" -- problem.sql
-# replace "{MYSQL_ROOT_PASSWORD}" "$MYSQL_ROOT_PROBLEM_PASSWORD" -- problem.sql
-# replace "{MYSQL_USER}" "$MYSQL_USER_PROBLEM" -- problem.sql
-# replace "{MYSQL_PASSWORD}" "$MYSQL_USER_PASSWORD_PROBLEM" -- problem.sql
-
-# cat > problem.sql <<EOF
-# CREATE DATABASE IF NOT EXISTS ${MYSQL_PROBLEM};
-# CREATE USER IF NOT EXISTS \'${MYSQL_USER_PROBLEM}\' IDENTIFIED BY \'${MYSQL_USER_PASSWORD_PROBLEM}\';
-# GRANT ALL PRIVILEGES ON ${MYSQL_PROBLEM}.* TO \'${MYSQL_USER_PROBLEM}\';
-# ALTER USER 'root'@'localhost' IDENTIFIED BY \'${MYSQL_ROOT_PROBLEM_PASSWORD}\';
-# FLUSH PRIVILEGES;
-EOF
+echo '
+[mysql]
+default-character-set=utf8
+[mysqld]
+datadir = /var/lib/mysql
+socket  = /var/run/mysqld/mysqld.sock
+bind-address = 0.0.0.0
+port = 3306
+' > /usr/local/bin/my.cnf
 
 cat > problem.sql <<EOF
 CREATE DATABASE IF NOT EXISTS ${MYSQL_PROBLEM};
@@ -28,7 +17,5 @@ GRANT ALL PRIVILEGES ON ${MYSQL_PROBLEM}.* TO '${MYSQL_USER_PROBLEM}';
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PROBLEM_PASSWORD}';
 FLUSH PRIVILEGES;
 EOF
-
-
 
 exec mariadbd --no-defaults --user=root --datadir=/var/lib/mysql --init-file=/problem.sql
