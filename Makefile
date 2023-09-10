@@ -1,21 +1,21 @@
 DOCKER_COMPOSE = docker-compose
 COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
-DIRS := ./problem_files ./problem_db
+# DIRS := ./problem_files ./problem_db
 
 include $(ENV_FILE)
 export
 
-build: dirs
+build:
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
 start:
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
-dirs:
-	@for dir in $(DIRS); do \
-	  [ -d $$dir ] || mkdir -p $$dir ; \
-	done
+# dirs:
+# 	@for dir in $(DIRS); do \
+# 	  [ -d $$dir ] || mkdir -p $$dir ; \
+# 	done
 
 stop:
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
