@@ -6,7 +6,7 @@ DIRS := ./problem_files ./problem_db
 include $(ENV_FILE)
 export
 
-build:
+build: dirs
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
 start:
@@ -46,10 +46,9 @@ db:
 	@docker exec -it mariadb mysql -u sh
 
 delete_data:
-	@rm -rf problem_db
-	@rm -rf problem_files
 	@docker volume rm srcs_problem-db
 	@docker volume rm srcs_problem-files
+
 
 
 env:
