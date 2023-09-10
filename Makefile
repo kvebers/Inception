@@ -9,7 +9,7 @@ export
 build: dirs
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
-start:
+start: dirs
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
 dirs:
@@ -31,8 +31,6 @@ fclean:
 	@docker network prune --force
 	@docker volume prune --force
 	
-lunch: build start
-
 re: stop build start
 
 rebuild: build start
@@ -59,7 +57,7 @@ help:
 	@echo "\033[1;90mbuild: Compiles the project\033[0m"
 	@echo "\033[1;32mstart: Well starts the bloody project\033[0m"
 	@echo "\033[1;90mstop: Stops the docker files, obviously\033[0m"
-	@echo "\033[1;32mlunch: Builds and starts the docker file\033[0m"
+	@echo "\033[1;32mThere was a command but I am too lasy to remove it: Builds and starts the docker file\033[0m"
 	@echo "\033[1;90mclean: Cleans up the project\033[0m"
 	@echo "\033[1;32mfclean: Completely stops the project\033[0m"
 	@echo "\033[1;90mre: Stop, build, and start\033[0m"
@@ -71,4 +69,4 @@ help:
 	@echo "\033[1;90mhelp: just help\033[0m"
 
 
-.PHONY: build start rebuild stop re fclean clean lunch all logs log db delete_data help env
+.PHONY: build start rebuild stop re fclean clean all logs log db delete_data help env
