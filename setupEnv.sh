@@ -12,4 +12,4 @@ echo "KEY_=/etc/ssl/private/$USER.42.fr.key" >> $FOLDER_1/.env
 echo "MYSQL_PROBLEM=problemdb"  >> $FOLDER_1/.env
 echo "MYSQL_ROOT_PROBLEM_PASSWORD=noproblem"  >> $FOLDER_1/.env
 echo "MYSQL_USER_PROBLEM=problemuser"  >> $FOLDER_1/.env
-echo "MYSQL_USER_PASSWORD_PROBLEM=onetwothree"  >> $FOLDER_1/.env
+echo "MYSQL_USER_PASSWORD_PROBLEM=noproblem"  >> $FOLDER_1/.env
