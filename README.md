@@ -1,3 +1,5 @@
+Still could do some wor on the documentation
+
 # Inception-Tutorial kvebers 42 Heilbronn
 
 ## [SETUP](https://github.com/kvebers/Inception-Tutorial/blob/main/tutorial/PART_1_SETUP.md)
