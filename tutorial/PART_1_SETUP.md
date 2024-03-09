@@ -13,7 +13,7 @@ So the subject specifies that you need penultimate version of Debian, right now 
 #### 3. Click on [installation information](https://www.debian.org/releases/bullseye/debian-installer/)
 #### 4. Click on [amd64](https://cdimage.debian.org/cdimage/archive/11.7.0/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso) and download the image
 
-## SETUP THE VM DO IT IN NEW VIRTUALBOX VERSION (PERFORMACE INCREATE 3x)
+## SETUP THE VM DO IT IN NEW VIRTUALBOX VERSION (PERFORMACE INCREASE 3x)
 
 <img width="638" alt="Screen Shot 2023-08-14 at 10 38 49 AM" src="https://github.com/kvebers/Inception-Tutorial/assets/49612380/1d4d48b8-d755-46ba-82c5-10cfbd523c06">
 
